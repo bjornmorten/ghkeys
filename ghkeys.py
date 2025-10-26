@@ -57,7 +57,8 @@ async def fetch_keys(session: aiohttp.ClientSession, user: str) -> FetchResult:
 
 async def fetch_all(users: List[str]) -> List[FetchResult]:
     """Fetch keys for multiple users concurrently."""
-    async with aiohttp.ClientSession() as session:
+    headers = {"User-Agent": USER_AGENT}
+    async with aiohttp.ClientSession(headers=headers) as session:
         tasks = [fetch_keys(session, u) for u in users]
         return await asyncio.gather(*tasks)
 
