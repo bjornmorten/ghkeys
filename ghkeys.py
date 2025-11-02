@@ -102,7 +102,7 @@ def format_results(results: List[FetchResult], inline: bool = False) -> str:
     return ("\n".join(combined).strip() + "\n", had_errors)
 
 
-async def main():
+async def async_main():
     parser = argparse.ArgumentParser(description="Fetch SSH public keys from GitHub users.")
     parser.add_argument("users", nargs="+", help="GitHub usernames")
     parser.add_argument("-i", "--inline-comments", action="store_true",
@@ -140,8 +140,11 @@ async def main():
         print(combined, end="")
 
 
-if __name__ == "__main__":
+def main():
     try:
-        asyncio.run(main())
+        asyncio.run(async_main())
     except KeyboardInterrupt:
         pass
+
+if __name__ == "__main__":
+    main()
