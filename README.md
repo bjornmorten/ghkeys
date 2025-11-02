@@ -15,7 +15,7 @@ ghkeys [options] USERNAME [USERNAME...]
 | `-i, --inline-comments` | Append username to the end of each key                             |
 | `-j, --json`            | Output JSON instead of plain text                                  |
 | `-a, --append`          | Append to `~/.ssh/authorized_keys` (or `--output` file if given)   |
-| `-o, --output FILE`     | Write keys to specified file (requires `--force` unless appending) |
+| `-o, --output FILE`     | Write keys to specified file                                       |
 | `-f, --force`           | Overwrite existing file                                            |
 
 ## Example output
